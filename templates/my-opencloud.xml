@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>OpenCloud</Name>
+  <Repository>opencloudeu/opencloud-rolling:latest</Repository>
+  <Registry>https://hub.docker.com/r/opencloudeu/opencloud-rolling</Registry>
+  <Network>opencloud-net</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://docs.opencloud.eu/</Support>
+  <Project>https://github.com/opencloud-eu/opencloud</Project>
+  <Overview>OpenCloud - Cloud storage and collaboration platform with document editing capabilities through Collabora Online integration.</Overview>
+  <Category>Cloud: Productivity: Tools:</Category>
+  <WebUI>https://opencloud.yourdomain.com</WebUI>
+  <TemplateURL/>
+  <Icon>https://avatars.githubusercontent.com/u/188916550?s=48&amp;v=4</Icon>
+  <ExtraParams>--entrypoint=/bin/sh</ExtraParams>
+  <PostArgs>-c "opencloud init || true; opencloud server"</PostArgs>
+  <CPUset/>
+  <DateInstalled>1734000000</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI Port" Target="9200" Default="9200" Mode="tcp" Description="OpenCloud HTTP Port" Type="Port" Display="always" Required="true" Mask="false">9200</Config>
+  <Config Name="Config Directory" Target="/etc/opencloud" Default="/mnt/user/appdata/opencloud/config" Mode="rw" Description="OpenCloud configuration directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/opencloud/config</Config>
+  <Config Name="Data Directory" Target="/var/lib/opencloud" Default="/mnt/user/appdata/opencloud/data" Mode="rw" Description="OpenCloud data directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/opencloud/data</Config>
+  <Config Name="Apps Directory" Target="/var/lib/opencloud/web/assets/apps" Default="/mnt/user/appdata/opencloud/apps" Mode="rw" Description="OpenCloud web extensions directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/opencloud/apps</Config>
+  <Config Name="IDM_ADMIN_PASSWORD" Target="IDM_ADMIN_PASSWORD" Default="" Mode="" Description="Admin password (required for first init)" Type="Variable" Display="always" Required="true" Mask="true">YourSecurePassword</Config>
+  <Config Name="OC_INSECURE" Target="OC_INSECURE" Default="true" Mode="" Description="Skip certificate validation" Type="Variable" Display="always" Required="true" Mask="false">true</Config>
+  <Config Name="PROXY_HTTP_ADDR" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Mode="" Description="HTTP listening address" Type="Variable" Display="always" Required="true" Mask="false">0.0.0.0:9200</Config>
+  <Config Name="OC_URL" Target="OC_URL" Default="https://opencloud.yourdomain.com" Mode="" Description="OpenCloud public URL" Type="Variable" Display="always" Required="true" Mask="false">https://opencloud.yourdomain.com</Config>
+  <Config Name="Micro-Registry-Address" Target="9233" Default="9233" Mode="tcp" Description="NATS registry port" Type="Port" Display="advanced" Required="false" Mask="false">9233</Config>
+  <Config Name="GATEWAY_GRPC_PORT" Target="9142" Default="9142" Mode="tcp" Description="Gateway gRPC port" Type="Port" Display="advanced" Required="false" Mask="false">9142</Config>
+  <Config Name="COLLABORA_DOMAIN" Target="COLLABORA_DOMAIN" Default="collabora.yourdomain.com" Mode="" Description="Collabora Online domain" Type="Variable" Display="advanced" Required="false" Mask="false">collabora.yourdomain.com</Config>
+  <Config Name="CSP Config File" Target="/etc/opencloud/csp.yaml" Default="/mnt/user/appdata/opencloud/config/csp.yaml" Mode="rw" Description="Content Security Policy config file" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/opencloud/config/csp.yaml</Config>
+  <Config Name="Banned Passwords File" Target="/etc/opencloud/banned-password-list.txt" Default="/mnt/user/appdata/opencloud/config/banned-password-list.txt" Mode="rw" Description="Banned passwords list file" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/opencloud/config/banned-password-list.txt</Config>
+  <Config Name="OC_LOG_LEVEL" Target="OC_LOG_LEVEL" Default="info" Mode="" Description="Log level (debug, info, warn, error)" Type="Variable" Display="advanced" Required="false" Mask="false">info</Config>
+  <Config Name="OC_LOG_COLOR" Target="OC_LOG_COLOR" Default="false" Mode="" Description="Enable colored logs" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="OC_LOG_PRETTY" Target="OC_LOG_PRETTY" Default="false" Mode="" Description="Enable pretty printed logs" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="PROXY_TLS" Target="PROXY_TLS" Default="false" Mode="" Description="Use TLS between reverse proxy and OpenCloud" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="PROXY_ENABLE_BASIC_AUTH" Target="PROXY_ENABLE_BASIC_AUTH" Default="false" Mode="" Description="Enable basic authentication" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="PROXY_CSP_CONFIG_FILE_LOCATION" Target="PROXY_CSP_CONFIG_FILE_LOCATION" Default="/etc/opencloud/csp.yaml" Mode="" Description="CSP config file location" Type="Variable" Display="advanced" Required="false" Mask="false">/etc/opencloud/csp.yaml</Config>
+  <Config Name="GATEWAY_GRPC_ADDR" Target="GATEWAY_GRPC_ADDR" Default="0.0.0.0:9142" Mode="" Description="Gateway gRPC address" Type="Variable" Display="advanced" Required="false" Mask="false">0.0.0.0:9142</Config>
+  <Config Name="NATS_NATS_HOST" Target="NATS_NATS_HOST" Default="0.0.0.0" Mode="" Description="NATS host address" Type="Variable" Display="advanced" Required="false" Mask="false">0.0.0.0</Config>
+  <Config Name="IDM_CREATE_DEMO_USERS" Target="IDM_CREATE_DEMO_USERS" Default="false" Mode="" Description="Create demo users (not for production)" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="FRONTEND_ARCHIVER_MAX_SIZE" Target="FRONTEND_ARCHIVER_MAX_SIZE" Default="10000000000" Mode="" Description="Max archive size in bytes" Type="Variable" Display="advanced" Required="false" Mask="false">10000000000</Config>
+  <Config Name="FRONTEND_CHECK_FOR_UPDATES" Target="FRONTEND_CHECK_FOR_UPDATES" Default="true" Mode="" Description="Check for updates" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="FRONTEND_APP_HANDLER_SECURE_VIEW_APP_ADDR" Target="FRONTEND_APP_HANDLER_SECURE_VIEW_APP_ADDR" Default="eu.opencloud.api.collaboration" Mode="" Description="Secure view app address" Type="Variable" Display="advanced" Required="false" Mask="false">eu.opencloud.api.collaboration</Config>
+  <Config Name="OC_PASSWORD_POLICY_BANNED_PASSWORDS_LIST" Target="OC_PASSWORD_POLICY_BANNED_PASSWORDS_LIST" Default="banned-password-list.txt" Mode="" Description="Banned passwords list file" Type="Variable" Display="advanced" Required="false" Mask="false">banned-password-list.txt</Config>
+  <Config Name="OC_PASSWORD_POLICY_DISABLED" Target="OC_PASSWORD_POLICY_DISABLED" Default="false" Mode="" Description="Disable password policy" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="OC_PASSWORD_POLICY_MIN_CHARACTERS" Target="OC_PASSWORD_POLICY_MIN_CHARACTERS" Default="8" Mode="" Description="Minimum password length" Type="Variable" Display="advanced" Required="false" Mask="false">8</Config>
+  <Config Name="OC_PASSWORD_POLICY_MIN_LOWERCASE_CHARACTERS" Target="OC_PASSWORD_POLICY_MIN_LOWERCASE_CHARACTERS" Default="1" Mode="" Description="Minimum lowercase characters" Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="OC_PASSWORD_POLICY_MIN_UPPERCASE_CHARACTERS" Target="OC_PASSWORD_POLICY_MIN_UPPERCASE_CHARACTERS" Default="1" Mode="" Description="Minimum uppercase characters" Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="OC_PASSWORD_POLICY_MIN_DIGITS" Target="OC_PASSWORD_POLICY_MIN_DIGITS" Default="1" Mode="" Description="Minimum digits" Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="OC_PASSWORD_POLICY_MIN_SPECIAL_CHARACTERS" Target="OC_PASSWORD_POLICY_MIN_SPECIAL_CHARACTERS" Default="1" Mode="" Description="Minimum special characters" Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
+  <Config Name="OC_SHARING_PUBLIC_SHARE_MUST_HAVE_PASSWORD" Target="OC_SHARING_PUBLIC_SHARE_MUST_HAVE_PASSWORD" Default="true" Mode="" Description="Require password for public shares" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="OC_SHARING_PUBLIC_WRITEABLE_SHARE_MUST_HAVE_PASSWORD" Target="OC_SHARING_PUBLIC_WRITEABLE_SHARE_MUST_HAVE_PASSWORD" Default="true" Mode="" Description="Require password for writeable public shares" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="GRAPH_AVAILABLE_ROLES" Target="GRAPH_AVAILABLE_ROLES" Default="b1e2218d-eef8-4d4c-b82d-0f1a1b48f3b5,a8d5fe5e-96e3-418d-825b-534dbdf22b99,fb6c3e19-e378-47e5-b277-9732f9de6e21,58c63c02-1d89-4572-916a-870abc5a1b7d,2d00ce52-1fc2-4dbc-8b95-a73b73395f5a,1c996275-f1c9-4e71-abdf-a42f6495e960,312c0871-5ef7-4b3a-85b6-0e4074c64049,aa97fe03-7980-45ac-9e50-b325749fd7e6" Mode="" Description="Available Graph roles" Type="Variable" Display="advanced" Required="false" Mask="false">b1e2218d-eef8-4d4c-b82d-0f1a1b48f3b5,a8d5fe5e-96e3-418d-825b-534dbdf22b99,fb6c3e19-e378-47e5-b277-9732f9de6e21,58c63c02-1d89-4572-916a-870abc5a1b7d,2d00ce52-1fc2-4dbc-8b95-a73b73395f5a,1c996275-f1c9-4e71-abdf-a42f6495e960,312c0871-5ef7-4b3a-85b6-0e4074c64049,aa97fe03-7980-45ac-9e50-b325749fd7e6</Config>
+  <Config Name="OC_ADD_RUN_SERVICES" Target="OC_ADD_RUN_SERVICES" Default="" Mode="" Description="Additional services to start" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="NOTIFICATIONS_SMTP_HOST" Target="NOTIFICATIONS_SMTP_HOST" Default="" Mode="" Description="SMTP server hostname" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="NOTIFICATIONS_SMTP_PORT" Target="NOTIFICATIONS_SMTP_PORT" Default="" Mode="" Description="SMTP server port" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="NOTIFICATIONS_SMTP_SENDER" Target="NOTIFICATIONS_SMTP_SENDER" Default="notifications@cloud.opencloud.test" Mode="" Description="SMTP sender email" Type="Variable" Display="advanced" Required="false" Mask="false">notifications@cloud.opencloud.test</Config>
+  <Config Name="NOTIFICATIONS_SMTP_USERNAME" Target="NOTIFICATIONS_SMTP_USERNAME" Default="" Mode="" Description="SMTP username" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="NOTIFICATIONS_SMTP_PASSWORD" Target="NOTIFICATIONS_SMTP_PASSWORD" Default="" Mode="" Description="SMTP password" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="NOTIFICATIONS_SMTP_INSECURE" Target="NOTIFICATIONS_SMTP_INSECURE" Default="" Mode="" Description="Allow insecure SMTP" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="NOTIFICATIONS_SMTP_AUTHENTICATION" Target="NOTIFICATIONS_SMTP_AUTHENTICATION" Default="" Mode="" Description="SMTP authentication method" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="NOTIFICATIONS_SMTP_ENCRYPTION" Target="NOTIFICATIONS_SMTP_ENCRYPTION" Default="none" Mode="" Description="SMTP encryption (none, starttls, ssltls)" Type="Variable" Display="advanced" Required="false" Mask="false">none</Config>
+  <TailscaleStateDir/>
+</Container>
