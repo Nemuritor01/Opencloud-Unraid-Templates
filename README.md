@@ -4,15 +4,15 @@ Complete deployment solution for OpenCloud with Collabora Online integration on 
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Container Configuration](#container-configuration)
-- [Network Setup](#network-setup)
-- [NGINX/SWAG Configuration](#nginxswag-configuration)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
+- [`Overview`](#overview)
+- [`Features`](#features)
+- [`Prerequisites`](#prerequisites)
+- [`Installation`](#installation)
+- [`Container Configuration`](#container-configuration)
+- [`Network Setup`](#network-setup)
+- [`NGINX/SWAG Configuration`](#nginxswag-configuration)
+- [`Troubleshooting`](#troubleshooting)
+- [`Contributing`](#contributing)
 
 ---
 
