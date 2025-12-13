@@ -71,12 +71,25 @@ The installation script creates the Docker network, directory structure, and con
 
 2. Edit the script and configure your domains:
 easiest way is to rename the file to.txt and do the changes with any file explorer.
+In unraid you can use the plugin "User Scripts" to create and run this script.
 
 Update these variables:
 ```bash
+# Collabora Integration
+ENABLE_COLLABORA="true"  #if you like to install collabora, set to true.
+
+# Docker Network Configuration
+CUSTOM_NETWORK="true"
+NETWORK_NAME="opencloud-net"
+
+# Domain Configuration (without https://)
 OCIS_DOMAIN="opencloud.yourdomain.com"
 COLLABORA_DOMAIN="collabora.yourdomain.com"
 WOPISERVER_DOMAIN="wopiserver.yourdomain.com"
+
+# Installation Paths
+OCL_BASE="/mnt/user/appdata/opencloud"
+COL_BASE="/mnt/user/appdata/collabora"
 ```
 
 3. run the script
