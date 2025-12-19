@@ -114,9 +114,9 @@ the folder is on your flash drive
 
 3. Access Unraid Docker tab and add containers from templates
 
-### Step 3: Configure NGINX Reverse Proxy
+### Step 3: Configure SWAG Reverse Proxy
 
-1. Download NGINX configuration files:
+1. Download SWAG configuration files:
    - `opencloud.subdomain.conf`
    - `collabora.subdomain.conf`
    - `wopiserver.subdomain.conf`
