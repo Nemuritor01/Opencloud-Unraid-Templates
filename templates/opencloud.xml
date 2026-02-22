@@ -17,7 +17,6 @@
   <ExtraParams>--entrypoint=/bin/sh</ExtraParams>
   <PostArgs>-c "opencloud init || true; opencloud server"</PostArgs>
   <CPUset/>
-  </DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>
